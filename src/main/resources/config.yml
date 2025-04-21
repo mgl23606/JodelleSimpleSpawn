@@ -1,0 +1,6 @@
+# config.yml
+enabled: true # Whether teleporting to spawn is enabled
+spawn:
+  x: -71
+  y: 53
+  z: -9

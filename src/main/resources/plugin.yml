@@ -1,0 +1,11 @@
+name: JodelleSimpleSpawn
+version: 25
+main: org.jodellesimplespawn.jodelleSimpleSpawn.JodelleSimpleSpawn
+commands:
+  jsp:
+    description: Set the spawn location to your current position
+    usage: /jsp setspawn
+permissions:
+  jodellesimplespawn.setspawn:
+    description: Allows setting the spawn location
+    default: op

@@ -10,6 +10,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.event.player.PlayerRespawnEvent;
 
 public final class JodelleSimpleSpawn extends JavaPlugin implements Listener {
 
@@ -121,6 +122,28 @@ public final class JodelleSimpleSpawn extends JavaPlugin implements Listener {
             // Log the teleportation to the console
             getLogger().info(YELLOW + event.getPlayer().getName() +
                     " teleported to spawn at X: " + x + ", Y: " + y + ", Z: " + z + RESET);
+        }
+    }
+
+
+    @EventHandler
+    public void onPlayerRespawn(PlayerRespawnEvent event) {
+        if (getConfig().getBoolean("enabled")) {
+
+            // Load coordinates from the config
+            double x = getConfig().getDouble("spawn.x");
+            double y = getConfig().getDouble("spawn.y");
+            double z = getConfig().getDouble("spawn.z");
+
+            // Create a spawn location using the player's current world
+            Location spawnLocation = new Location(event.getPlayer().getWorld(), x, y, z);
+
+            // Set the player's respawn location
+            event.setRespawnLocation(spawnLocation);
+
+            // Log the teleportation to the console
+            getLogger().info(YELLOW + event.getPlayer().getName() +
+                    " respawned and was teleported to spawn at X: " + x + ", Y: " + y + ", Z: " + z + RESET);
         }
     }
 }

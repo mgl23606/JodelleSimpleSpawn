@@ -1,5 +1,5 @@
 name: JodelleSimpleSpawn
-version: 25
+version: 25.22
 main: org.jodellesimplespawn.jodelleSimpleSpawn.JodelleSimpleSpawn
 commands:
   jsp:
